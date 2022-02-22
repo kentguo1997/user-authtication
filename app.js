@@ -56,13 +56,13 @@ app.post('/accounts', (req, res) => {
       // determine if the input email exists 
       matchedAccount = accounts.filter( account => account.email === inputEmail )
       if (matchedAccount.length === 0) {
-        return console.log('Wrong Email!')
+        return res.render('index', { message: 'Wrong Email! Please check again!'})
       } else {
         // determine if the input password is correct
         if (matchedAccount[0].password === inputPassword) {
           res.render('success', {firstName: matchedAccount[0].firstName})
         } else {
-          return console.log('Wrong Password!')
+          return res.render('index', { message: 'Wrong Password! Please check again!' })
         }
       } 
     })
