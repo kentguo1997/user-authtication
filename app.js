@@ -1,29 +1,13 @@
 // Include packages
 const express = require('express')
-const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
+require('./config/mongoose')
 const routes = require('./routes')
-
 const port = 3001
 
 const app = express()
-
-
-// setting connection to db
-mongoose.connect('mongodb://localhost/user-authentication')
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
-
 
 
 // setting template engine
