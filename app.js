@@ -46,8 +46,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/accounts', (req, res) => {
-  const inputEmail = req.body.inputEmail
-  const inputPassword = req.body.inputPassword
+  const { inputEmail, inputPassword } = req.body
   let matchedAccount = []
   
   accountModel.find()
