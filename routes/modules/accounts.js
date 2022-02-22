@@ -4,7 +4,6 @@ const router = express.Router()
 
 const accountModel = require('../../models/account')
 
-
 // setting routes
 router.post('/', (req, res) => {
   const { inputEmail, inputPassword } = req.body
@@ -13,7 +12,7 @@ router.post('/', (req, res) => {
   accountModel.find()
     .lean()
     .then(accounts => {
-      // determine if the input email exists 
+      // determine if the input email exists
       matchedAccount = accounts.filter(account => account.email === inputEmail)
       if (matchedAccount.length === 0) {
         return res.render('index', { message: 'Wrong Email! Please check again!' })
@@ -27,7 +26,6 @@ router.post('/', (req, res) => {
       }
     })
 })
-
 
 // export
 module.exports = router

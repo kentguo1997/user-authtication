@@ -1,7 +1,6 @@
 // Include mongoose
 const mongoose = require('mongoose')
 
-
 // setting connection to db
 mongoose.connect('mongodb://localhost/user-authentication')
 
@@ -14,7 +13,6 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
 })
-
 
 // export
 module.exports = db
